@@ -5,7 +5,9 @@ import com.mapstructlombok.entity.Category;
 import com.mapstructlombok.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
+import org.mapstruct.Mappings;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
@@ -18,6 +20,11 @@ public abstract class CategoryMapper {
 
     @Autowired
    private   CategoryRepository categoryRepository ;
+
+    @Mappings({
+            @Mapping(source ="id" , target = "categoryId"),
+            @Mapping(source ="name" , target = "categoryName")
+    })
     abstract GetCategory toGetCategory(Category category);
 
 

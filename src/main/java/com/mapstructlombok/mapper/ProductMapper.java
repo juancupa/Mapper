@@ -14,10 +14,19 @@ public interface ProductMapper {
             /*@Mapping(source = "id", target = "id"),
             @Mapping(source = "name", target = "name"),*/
             @Mapping(source = "creationDate", target = "creationDate",
-                    dateFormat = "yyyy-MM-dd HH-mm-ss")
+                    dateFormat = "yyyy-MM-dd HH-mm-ss"),
+            @Mapping(source = "name", target = "productName"),
+            @Mapping(source = "id", target = "productId"),
+            @Mapping(source = "category", target = "productCategory"),
+            @Mapping(source = "price", target = "price", numberFormat = "$0.00"),
+
     })
 
     GetProduct toGetDTO(Product product);
+
+    @Mappings({
+            @Mapping(target = "creationDate", ignore = true)
+    })
 
     @InheritInverseConfiguration
     Product toEntity(GetProduct getProduct);

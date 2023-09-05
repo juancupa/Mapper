@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,6 +16,7 @@ public class GetProduct {
     private Long productId;
     private String productName;
     private String creationDate;
-    private GetCategory category;
+    private GetCategory productCategory;
+    private String price;
 
 }
